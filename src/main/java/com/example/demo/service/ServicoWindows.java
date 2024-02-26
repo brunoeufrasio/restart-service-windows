@@ -1,23 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.service;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Component;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Service;
 
-@RestController
-public class ServiceController {
-    @PostMapping("/restartService")
-    public String restartService() {
+@Service
+public class ServicoWindows {
+
+    public String restartService(String serviceName) {
         try {
-            // Nome do serviço que você deseja reiniciar
-            String serviceName = "MySQL80";
-
             // Comando para reiniciar o serviço no Windows
             String restartCommand = "cmd.exe /c net stop " + serviceName + " && net start " + serviceName;
 
@@ -40,14 +29,9 @@ public class ServiceController {
         }
     }
 
-    @PostMapping("/startService")
-    public String startService() {
+    public String startService(String serviceName) {
         try {
-            // Nome do serviço que você deseja reiniciar
-            String serviceName = "MySQL80";
-
             // Comando para reiniciar o serviço no Windows
-            //   String restartCommand = "cmd.exe /c net stop " + serviceName + " && net start " + serviceName;
             String restartCommand = "cmd.exe /c net start " + serviceName;
 
             // Executar o comando
@@ -68,14 +52,9 @@ public class ServiceController {
         }
     }
 
-    @PostMapping("/stopService")
-    public String stopService() {
+    public String stopService(String serviceName) {
         try {
-            // Nome do serviço que você deseja reiniciar
-            String serviceName = "MySQL80";
-
             // Comando para reiniciar o serviço no Windows
-            //   String restartCommand = "cmd.exe /c net stop " + serviceName + " && net start " + serviceName;
             String restartCommand = "cmd.exe /c net stop " + serviceName;
 
             // Executar o comando
@@ -95,8 +74,4 @@ public class ServiceController {
             return "Ocorreu um erro ao parado o serviço.";
         }
     }
-
-
-
-
 }
