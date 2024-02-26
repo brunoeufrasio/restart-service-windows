@@ -16,6 +16,6 @@ public class Agendamento {
 
     @Scheduled(fixedRate = 18000000) // 5 horas em milissegundos
     public void executeTask() {
-        log.info(servicoWindows.restartService("Soul Integrator") + " as " + now());
+        log.info(servicoWindows.restartService("Soul-integrator") + " as " + now());
     }
 }
