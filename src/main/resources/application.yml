@@ -1,2 +1,7 @@
 server:
   port: 8089
+
+logging:
+  file: "logs/test.log"
+  pattern:
+    console:
